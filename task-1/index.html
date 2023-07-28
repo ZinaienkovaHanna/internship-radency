@@ -3,7 +3,60 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles/index.css" />
         <title>Notes App</title>
     </head>
-    <body></body>
+    <body>
+        <div class="notes-app">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Created</th>
+                        <th>Category</th>
+                        <th>Content</th>
+                        <th>Dates</th>
+                        <th>
+                            <i class="fas fa-archive"></i>
+                            <i class="fas fa-trash"></i>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="notes-table-body"></tbody>
+            </table>
+
+            <button id="create-note-btn">Create Note</button>
+
+            <!-- Модальне вікно для створення замітки -->
+            <div id="create-note-modal" class="modal">
+                <div class="modal-content">
+                    <span id="close-modal-btn" class="close">&times;</span>
+                    <h2>Create Note</h2>
+                    <form>
+                        <label for="note-name">Name:</label>
+                        <input type="text" id="note-name" required />
+                        <label for="note-category">Category:</label>
+                        <select id="note-category" required>
+                            <option value="Task">Task</option>
+                            <option value="Random Thought">
+                                Random Thought
+                            </option>
+                            <option value="Idea">Idea</option>
+                            <option value="Quote">Quote</option>
+                        </select>
+                        <label for="note-content">Content:</label>
+                        <textarea id="note-content" required></textarea>
+                        <button type="button" id="save-note-btn">
+                            Add Note
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script
+            src="https://kit.fontawesome.com/77d3d26d2f.js"
+            crossorigin="anonymous"
+        ></script>
+        <script type="module" src="scripts/main.js"></script>
+    </body>
 </html>
