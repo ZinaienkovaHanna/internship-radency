@@ -7,7 +7,7 @@
         <title>Notes App</title>
     </head>
     <body>
-        <div class="notes-app">
+        <div class="notes-app container">
             <table>
                 <thead>
                     <tr>
@@ -17,15 +17,18 @@
                         <th>Content</th>
                         <th>Dates</th>
                         <th>
-                            <i class="fas fa-archive"></i>
-                            <i class="fas fa-trash"></i>
+                            <i class="fas fa-archive header"></i>
+                            <i class="fas fa-trash header"></i>
                         </th>
                     </tr>
                 </thead>
                 <tbody id="notes-table-body"></tbody>
             </table>
-
-            <button id="create-note-btn">Create Note</button>
+            <div class="btns-group">
+                <button id="active-note-btn">Active</button>
+                <button id="archived-note-btn">Archived</button>
+                <button id="create-note-btn">Create Note</button>
+            </div>
 
             <!-- Модальне вікно для створення замітки -->
             <div id="create-note-modal" class="modal">
