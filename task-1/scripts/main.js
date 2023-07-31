@@ -1,21 +1,12 @@
 import renderNotes from './renderNotes.js';
 import { openModal, closeModal } from './noteModal.js';
 import { openEditModal, saveNote } from './editNote.js';
+import { getNoteDataFromForm } from './addNote.js';
 import deleteNote from './deleteNote.js';
+import toggleNote from './archiveNote.js';
 
 renderNotes();
 
-// main.js
-// Функція для отримання даних про замітку з форми
-function getNoteDataFromForm() {
-    return {
-        name: document.getElementById('note-name'),
-        category: document.getElementById('note-category'),
-        content: document.getElementById('note-content'),
-    };
-}
-
-// Функція для підсвічування порожніх полів червоним фокусом
 function validate(noteData) {
     const { name, content } = noteData;
 
@@ -33,19 +24,15 @@ function validate(noteData) {
         }, 500);
     }
 
-    // Повертаємо true, якщо обидва поля заповнені, і false, якщо хоча б одне з них порожнє
     return name.value && content.value;
 }
 
-// Обробник події для кнопки "Create Note"
 document.getElementById('create-note-btn').addEventListener('click', openModal);
 
-// Обробник події для закриття модального вікна при натисканні на "×"
 document
     .getElementById('close-modal-btn')
     .addEventListener('click', closeModal);
 
-// Обробник події для кнопки "Save Note"
 document.getElementById('save-note-btn').addEventListener('click', () => {
     const noteData = getNoteDataFromForm();
 
@@ -58,14 +45,17 @@ document
     .getElementById('notes-table-body')
     .addEventListener('click', (event) => {
         if (event.target.classList.contains('edit-note-btn')) {
-            const index = event.target.getAttribute('data-index');
-            openEditModal(index);
+            const id = event.target.getAttribute('data-id');
+            openEditModal(id);
+        }
+
+        if (event.target.classList.contains('archive-note-btn')) {
+            const id = event.target.getAttribute('data-id');
+            toggleNote(id);
         }
 
         if (event.target.classList.contains('delete-note-btn')) {
-            const index = event.target.getAttribute('data-index');
-            deleteNote(index);
+            const id = event.target.getAttribute('data-id');
+            deleteNote(id);
         }
     });
-
-export default getNoteDataFromForm;
