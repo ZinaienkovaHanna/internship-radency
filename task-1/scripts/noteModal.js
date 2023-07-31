@@ -11,7 +11,7 @@ function closeModal() {
 
     // Очищення значень інпутів
     document.getElementById('note-name').value = '';
-    document.getElementById('note-category').value = '';
+    document.getElementById('note-category').value = 'Task';
     document.getElementById('note-content').value = '';
 }
 

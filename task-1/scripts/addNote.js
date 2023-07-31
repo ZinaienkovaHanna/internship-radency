@@ -1,26 +1,19 @@
 import notes from '../data/notes.js';
+import getNoteDataFromForm from './main.js';
 import { closeModal } from './noteModal.js';
 import renderNotes from './renderNotes.js';
 
 // Функція для збереження замітки
 function addNote() {
-    const name = document.getElementById('note-name').value;
-    const category = document.getElementById('note-category').value;
-    const content = document.getElementById('note-content').value;
-    const created = new Date().toLocaleDateString(); // Поточна дата в форматі 'DD.MM.YYYY'
-
-    if (!name || !category || !content) {
-        // Якщо хоча б одне з обов'язкових полів порожнє, не додавати нову замітку
-        return;
-    }
+    const noteData = getNoteDataFromForm();
 
     // Створення об'єкта з збереженими даними
     const newNote = {
-        icon: getIconByCategory(category),
-        name: name,
-        created: created,
-        category: category,
-        content: content,
+        icon: getIconByCategory(noteData.category.value),
+        name: noteData.name.value,
+        created: new Date().toLocaleDateString(),
+        category: noteData.category.value,
+        content: noteData.content.value,
         dates: '', // Пустий рядок поки що, додайте функціонал для отримання дат
     };
     // Додавання замітки до масиву notes
@@ -48,4 +41,4 @@ function getIconByCategory(category) {
     }
 }
 
-export default addNote;
+export { addNote, getIconByCategory };

@@ -42,7 +42,6 @@
 }
 
 .modal-content input {
-    border: none;
     height: 40px;
 }
 
@@ -55,7 +54,6 @@
 }
 
 .modal-content select {
-    border: none;
     height: 40px;
     color: var(--text-note);
     font-family: Josefin Sans;
@@ -65,7 +63,6 @@
 }
 
 .modal-content textarea {
-    border: none;
     height: 64px;
     color: var(--text-note);
     font-family: Josefin Sans;
@@ -101,4 +98,8 @@
 
 .close:hover {
     transform: scale(1.5);
+}
+
+.highlight {
+    border: 1px solid red;
 }

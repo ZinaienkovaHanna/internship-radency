@@ -1,6 +1,6 @@
 import { openModal, closeModal } from './noteModal.js';
 import notes from '../data/notes.js';
-import addNote from './addNote.js';
+import { addNote, getIconByCategory } from './addNote.js';
 import renderNotes from './renderNotes.js';
 
 let editingIndex = null;
@@ -32,7 +32,7 @@ function saveNote() {
         editedNote.name = name;
         editedNote.category = category;
         editedNote.content = content;
-        editedNote.created = created;
+        editedNote.icon = getIconByCategory(category);
     } else {
         // Якщо індекс редагованої замітки === null, то це нова замітка
         addNote();
