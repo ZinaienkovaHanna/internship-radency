@@ -6,15 +6,12 @@ function generateSummaryTable() {
     const summaryTableBody = document.getElementById('summary-table-body');
     const categories = ['Task', 'Idea', 'Random Thought', 'Quote'];
 
-    // Лічильники для активних і архівованих заміток для кожної категорії
     const counts = {};
 
-    // Ініціалізуємо лічильники заміток для кожної категорії
     categories.forEach((category) => {
         counts[category] = { active: 0, archived: 0 };
     });
 
-    // Підрахунок активних і архівованих заміток
     notes.forEach((note) => {
         if (note.category in counts) {
             note.archived
@@ -23,7 +20,6 @@ function generateSummaryTable() {
         }
     });
 
-    // Генерування рядків таблиці зі статистикою
     const summaryRows = categories.map((category) => {
         const { active, archived } = counts[category];
         const icon = getIconByCategory(category);
@@ -40,12 +36,9 @@ function generateSummaryTable() {
       `;
     });
 
-    // Вставка рядків у вміст таблиці
     summaryTableBody.innerHTML = summaryRows.join('');
 
     renderNotes();
 }
-
-// Виклик функції для створення таблиці зі статистикою при завантаженні сторінки або зміні даних
 
 export default generateSummaryTable;

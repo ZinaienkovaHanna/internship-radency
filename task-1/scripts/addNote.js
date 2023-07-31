@@ -8,9 +8,9 @@ function generateUniqueId() {
 
 function getNoteDataFromForm() {
     return {
-        name: document.getElementById('note-name'),
-        category: document.getElementById('note-category'),
-        content: document.getElementById('note-content'),
+        name: document.querySelector('#note-name'),
+        category: document.querySelector('#note-category'),
+        content: document.querySelector('#note-content'),
     };
 }
 

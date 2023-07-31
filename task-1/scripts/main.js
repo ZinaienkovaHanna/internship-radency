@@ -9,6 +9,16 @@ import generateSummaryTable from './generateSummaryTable.js';
 renderNotes();
 generateSummaryTable();
 
+const activeNoteBtn = document.querySelector('#active-note-btn');
+const archivedNoteBtn = document.querySelector('#archived-note-btn');
+const createNoteBtn = document.querySelector('#create-note-btn');
+const closeModalBtn = document.querySelector('#close-modal-btn');
+const saveNoteBtn = document.querySelector('#save-note-btn');
+const notesTableBody = document.querySelector('#notes-table-body');
+
+activeNoteBtn.addEventListener('click', () => renderNotes('active'));
+archivedNoteBtn.addEventListener('click', () => renderNotes('archived'));
+
 function validate(noteData) {
     const { name, content } = noteData;
 
@@ -29,13 +39,11 @@ function validate(noteData) {
     return name.value && content.value;
 }
 
-document.getElementById('create-note-btn').addEventListener('click', openModal);
+createNoteBtn.addEventListener('click', openModal);
 
-document
-    .getElementById('close-modal-btn')
-    .addEventListener('click', closeModal);
+closeModalBtn.addEventListener('click', closeModal);
 
-document.getElementById('save-note-btn').addEventListener('click', () => {
+saveNoteBtn.addEventListener('click', () => {
     const noteData = getNoteDataFromForm();
 
     if (validate(noteData)) {
@@ -44,25 +52,21 @@ document.getElementById('save-note-btn').addEventListener('click', () => {
     }
 });
 
-document
-    .getElementById('notes-table-body')
-    .addEventListener('click', (event) => {
-        if (event.target.classList.contains('edit-note-btn')) {
-            const id = event.target.getAttribute('data-id');
-            openEditModal(id);
-        }
+notesTableBody.addEventListener('click', (event) => {
+    if (event.target.classList.contains('edit-note-btn')) {
+        const id = event.target.getAttribute('data-id');
+        openEditModal(id);
+    }
 
-        if (event.target.classList.contains('archive-note-btn')) {
-            const id = event.target.getAttribute('data-id');
-            toggleNote(id);
-            generateSummaryTable();
-        }
+    if (event.target.classList.contains('archive-note-btn')) {
+        const id = event.target.getAttribute('data-id');
+        toggleNote(id);
+        generateSummaryTable();
+    }
 
-        if (event.target.classList.contains('delete-note-btn')) {
-            const id = event.target.getAttribute('data-id');
-            deleteNote(id);
-            generateSummaryTable();
-        }
-    });
-
-// generateSummaryTable();
+    if (event.target.classList.contains('delete-note-btn')) {
+        const id = event.target.getAttribute('data-id');
+        deleteNote(id);
+        generateSummaryTable();
+    }
+});

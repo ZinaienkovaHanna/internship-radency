@@ -17,15 +17,15 @@ function openEditModal(id) {
 
 function fillEditModal(id) {
     const note = notes.find((note) => note.id === id);
-    document.getElementById('note-name').value = note.name;
-    document.getElementById('note-category').value = note.category;
-    document.getElementById('note-content').value = note.content;
+    document.querySelector('#note-name').value = note.name;
+    document.querySelector('#note-category').value = note.category;
+    document.querySelector('#note-content').value = note.content;
 }
 
 function saveNote() {
-    const name = document.getElementById('note-name').value;
-    const category = document.getElementById('note-category').value;
-    const content = document.getElementById('note-content').value;
+    const name = document.querySelector('#note-name').value;
+    const category = document.querySelector('#note-category').value;
+    const content = document.querySelector('#note-content').value;
 
     if (editingId !== null) {
         const editedNote = notes.find((note) => note.id === editingId);

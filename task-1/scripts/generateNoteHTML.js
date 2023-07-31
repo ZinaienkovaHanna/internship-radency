@@ -1,5 +1,4 @@
 function generateNoteHTML(note) {
-    // Перевіряємо, чи замітка архівована
     const isArchived = note.archived ? 'isArchived' : '';
 
     return `

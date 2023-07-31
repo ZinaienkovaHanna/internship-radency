@@ -49,7 +49,7 @@ i.note:hover {
 td {
     padding: 12px;
     background-color: var(--bg-note);
-    max-width: 250px;
+    max-width: 200px;
     word-wrap: break-word;
 }
 
