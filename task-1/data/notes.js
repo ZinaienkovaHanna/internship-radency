@@ -49,7 +49,7 @@ const notes = [
         content:
             'Flight details: 07.09.2023, Departure at 9:00 AM, Arrival at 2:00 PM.',
         dates: '07.09.2023',
-        archived: false,
+        archived: true,
     },
     {
         id: '6',
@@ -60,7 +60,7 @@ const notes = [
         content:
             'Books to read: "The Great Gatsby," "1984," "To Kill a Mockingbird."',
         dates: '',
-        archived: false,
+        archived: true,
     },
     {
         id: '7',
@@ -70,7 +70,7 @@ const notes = [
         category: 'Random Thought',
         content: 'Gifts to buy: watch, perfume, and a handwritten letter.',
         dates: '',
-        archived: false,
+        archived: true,
     },
 ];
 

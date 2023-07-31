@@ -2,6 +2,7 @@ table {
     margin: auto;
     border-collapse: separate;
     border-spacing: 0 8px;
+    width: 1000px;
 }
 
 th {
@@ -45,7 +46,7 @@ i.note:hover {
     align-items: center;
 }
 
-#notes-table-body td {
+td {
     padding: 12px;
     background-color: var(--bg-note);
     max-width: 250px;

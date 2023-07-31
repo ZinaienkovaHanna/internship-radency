@@ -4,8 +4,10 @@ import { openEditModal, saveNote } from './editNote.js';
 import { getNoteDataFromForm } from './addNote.js';
 import deleteNote from './deleteNote.js';
 import toggleNote from './archiveNote.js';
+import generateSummaryTable from './generateSummaryTable.js';
 
 renderNotes();
+generateSummaryTable();
 
 function validate(noteData) {
     const { name, content } = noteData;
@@ -38,6 +40,7 @@ document.getElementById('save-note-btn').addEventListener('click', () => {
 
     if (validate(noteData)) {
         saveNote();
+        generateSummaryTable();
     }
 });
 
@@ -52,10 +55,14 @@ document
         if (event.target.classList.contains('archive-note-btn')) {
             const id = event.target.getAttribute('data-id');
             toggleNote(id);
+            generateSummaryTable();
         }
 
         if (event.target.classList.contains('delete-note-btn')) {
             const id = event.target.getAttribute('data-id');
             deleteNote(id);
+            generateSummaryTable();
         }
     });
+
+// generateSummaryTable();
