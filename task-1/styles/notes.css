@@ -11,6 +11,7 @@ th {
     padding: 12px;
     color: var(--text-header);
     background-color: var(--bg-header);
+    text-align: center;
 }
 
 tbody {
@@ -44,14 +45,9 @@ i.note:hover {
     align-items: center;
 }
 
-.circle-icon-flex {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
 #notes-table-body td {
     padding: 12px;
     background-color: var(--bg-note);
     max-width: 200px;
+    word-wrap: break-word;
 }

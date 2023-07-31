@@ -1,11 +1,12 @@
 function generateNoteHTML(note, index) {
     return `
       <tr>
-        <td class="circle-icon-flex">
+        <td >
           <div class="circle-icon">
             <i class="fas fa-${note.icon}"></i>
-          </div>${note.name}
+          </div>
         </td>
+        <td >${note.name}</td>
         <td>${note.created}</td>
         <td>${note.category}</td>
         <td>${note.content}</td>

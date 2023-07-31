@@ -9,6 +9,11 @@ function addNote() {
     const content = document.getElementById('note-content').value;
     const created = new Date().toLocaleDateString(); // Поточна дата в форматі 'DD.MM.YYYY'
 
+    if (!name || !category || !content) {
+        // Якщо хоча б одне з обов'язкових полів порожнє, не додавати нову замітку
+        return;
+    }
+
     // Створення об'єкта з збереженими даними
     const newNote = {
         icon: getIconByCategory(category),
@@ -18,10 +23,8 @@ function addNote() {
         content: content,
         dates: '', // Пустий рядок поки що, додайте функціонал для отримання дат
     };
-    console.log(notes);
     // Додавання замітки до масиву notes
     notes.push(newNote);
-    console.log(notes);
     // Закриття модального вікна
     closeModal();
 

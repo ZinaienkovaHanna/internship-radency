@@ -3,25 +3,23 @@ import notes from '../data/notes.js';
 import addNote from './addNote.js';
 import renderNotes from './renderNotes.js';
 
-function editNote(index) {
-    const note = notes[index];
+let editingIndex = null;
 
-    // Заповнення інпутів модального вікна значеннями з замітки
-    document.getElementById('note-name').value = note.name;
-    document.getElementById('note-category').value = note.category;
-    document.getElementById('note-content').value = note.content;
-
-    // Встановлення обробника події для кнопки "Save Note" замість обробника для створення нової замітки
-    const saveNoteBtn = document.getElementById('save-note-btn');
-    saveNoteBtn.removeEventListener('click', addNote); // Видаляємо попередній обробник
-    saveNoteBtn.addEventListener('click', () => saveEditedNote(index)); // Встановлюємо новий обробник
-
-    // Відкриття модального вікна
+function openEditModal(index) {
+    editingIndex = index;
+    fillEditModal(index);
     openModal();
 }
 
-// Функція для збереження змінених даних у замітці
-function saveEditedNote(index) {
+function fillEditModal(index) {
+    const note = notes[index];
+    document.getElementById('note-name').value = note.name;
+    document.getElementById('note-category').value = note.category;
+    document.getElementById('note-content').value = note.content;
+}
+
+// Функція для збереження  даних у замітці
+function saveNote() {
     // Отримання змінених значень з інпутів
     const name = document.getElementById('note-name').value;
     const category = document.getElementById('note-category').value;
@@ -29,17 +27,25 @@ function saveEditedNote(index) {
     const created = new Date().toLocaleDateString(); // Поточна дата в форматі 'DD.MM.YYYY'
 
     // Зміна значень в об'єкті замітки
-    const editedNote = notes[index];
-    editedNote.name = name;
-    editedNote.category = category;
-    editedNote.content = content;
-    editedNote.created = created;
+    if (editingIndex !== null) {
+        const editedNote = notes[editingIndex];
+        editedNote.name = name;
+        editedNote.category = category;
+        editedNote.content = content;
+        editedNote.created = created;
+    } else {
+        // Якщо індекс редагованої замітки === null, то це нова замітка
+        addNote();
+    }
 
     // Закриття модального вікна
     closeModal();
 
     // Оновлення відображення таблиці заміток
     renderNotes();
+
+    // Очищаємо індекс редагованої замітки
+    editingIndex = null;
 }
 
-export default editNote;
+export { openEditModal, saveNote };

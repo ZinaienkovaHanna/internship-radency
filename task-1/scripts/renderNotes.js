@@ -1,6 +1,6 @@
 import notes from '../data/notes.js';
 import generateNoteHTML from './generateNoteHTML.js';
-import editNote from './editNote.js';
+import { openEditModal } from './editNote.js';
 
 function renderNotes() {
     const notesTableBody = document.querySelector('#notes-table-body');
@@ -12,7 +12,7 @@ function renderNotes() {
     // Додаємо обробник події для кожної кнопки "Edit"
     const editBtns = document.querySelectorAll('.edit-note-btn');
     editBtns.forEach((btn, index) => {
-        btn.addEventListener('click', () => editNote(index));
+        btn.addEventListener('click', () => openEditModal(index));
     });
 }
 
