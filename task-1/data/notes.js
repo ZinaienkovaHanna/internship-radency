@@ -1,0 +1,77 @@
+const notes = [
+    {
+        id: '1',
+        icon: 'tasks',
+        name: 'Shopping List',
+        created: '27.07.2023',
+        category: 'Task',
+        content: 'Buy bananas, tomatoes, and bread. 01.08.2023',
+        dates: '01.08.2023',
+        archived: false,
+    },
+    {
+        id: '2',
+        icon: 'lightbulb',
+        name: 'To-Do List',
+        created: '28.07.2023',
+        category: 'Idea',
+        content: 'Finish the report for work. 03.08.2023',
+        dates: '03.08.2023',
+        archived: false,
+    },
+    {
+        id: '3',
+        icon: 'comment',
+        name: 'Recipe',
+        created: '29.07.2023',
+        category: 'Random Thought',
+        content: 'Ingredients: chicken, potatoes, carrots, and onions.',
+        dates: '',
+        archived: false,
+    },
+    {
+        id: '4',
+        icon: 'quote-right',
+        name: 'Gym Plan',
+        created: '29.07.2023',
+        category: 'Quote',
+        content:
+            'Workout routine: 30 minutes of cardio, 3 sets of squats, 3 sets of bench press.',
+        dates: '',
+        archived: false,
+    },
+    {
+        id: '5',
+        icon: 'tasks',
+        name: 'Travel Itinerary',
+        created: '27.07.2023',
+        category: 'Task',
+        content:
+            'Flight details: 07.09.2023, Departure at 9:00 AM, Arrival at 2:00 PM.',
+        dates: '07.09.2023',
+        archived: true,
+    },
+    {
+        id: '6',
+        icon: 'lightbulb',
+        name: 'Book Recommendations',
+        created: '28.07.2023',
+        category: 'Idea',
+        content:
+            'Books to read: "The Great Gatsby," "1984," "To Kill a Mockingbird."',
+        dates: '',
+        archived: true,
+    },
+    {
+        id: '7',
+        icon: 'comment',
+        name: 'Gift Ideas',
+        created: '29.07.2023',
+        category: 'Random Thought',
+        content: 'Gifts to buy: watch, perfume, and a handwritten letter.',
+        dates: '',
+        archived: true,
+    },
+];
+
+export default notes;
