@@ -1,5 +1,6 @@
 import renderNotes from './renderNotes.js';
 import { openModal, closeModal } from './noteModal.js';
+import validate from './validate.js';
 import { openEditModal, saveNote } from './editNote.js';
 import { getNoteDataFromForm } from './addNote.js';
 import deleteNote from './deleteNote.js';
@@ -18,26 +19,6 @@ const notesTableBody = document.querySelector('#notes-table-body');
 
 activeNoteBtn.addEventListener('click', () => renderNotes('active'));
 archivedNoteBtn.addEventListener('click', () => renderNotes('archived'));
-
-function validate(noteData) {
-    const { name, content } = noteData;
-
-    if (!name.value) {
-        name.classList.add('highlight');
-        setTimeout(function () {
-            name.classList.remove('highlight');
-        }, 500);
-    }
-
-    if (!content.value) {
-        content.classList.add('highlight');
-        setTimeout(function () {
-            content.classList.remove('highlight');
-        }, 500);
-    }
-
-    return name.value && content.value;
-}
 
 createNoteBtn.addEventListener('click', openModal);
 

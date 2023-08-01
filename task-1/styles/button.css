@@ -20,7 +20,3 @@
 .btns-group button:hover {
     color: var(--button-hover);
 }
-
-/* .btns-group button.active {
-    color: var(--button-hover);
-} */

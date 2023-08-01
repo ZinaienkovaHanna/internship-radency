@@ -40,7 +40,7 @@ i.note:hover {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background-color: white;
+    background-color: var(--text-header);
     display: flex;
     justify-content: center;
     align-items: center;

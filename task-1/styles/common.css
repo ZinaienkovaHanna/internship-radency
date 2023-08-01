@@ -1,36 +1,17 @@
-@import url(https://fonts.googleapis.com/css?family=Poppins:regular,700);
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* border: 1px solid red; */
 }
 
 :root {
-    --logo-h1: #fff;
-    --bg-todo: #fff;
-    --input-placeholder: #9495a5;
-    --circle: #e3e4f1;
-    --text-todo: #494c6b;
-    --background: #fafafa;
-
-    --completed-todo: #d1d2da;
-
     --bg-header: #393a4b;
     --bg-note: #e3e4f1;
     --text-note: #494c6b;
     --text-header: #fafafa;
     --button-hover: #3a7cfd;
-
-    --bg-todo: #25273d;
-    --input-placeholder: #767992;
-    --circle: #393a4b;
-    --text-todo: #c8cbe7;
-    --bg-image-mobile: url(./images/bg-mobile-dark.jpg);
-    --bg-image-desktop: url(./images/bg-desktop-dark.jpg);
-    --background: #171823;
-    --box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
-    --completed-todo: #4d5067;
+    --error: red;
+    --bg-modal: rgba(0, 0, 0, 0.5);
 }

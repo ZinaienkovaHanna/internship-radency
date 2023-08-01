@@ -1,5 +1,5 @@
-import notes from '../data/notes.js';
 import generateNoteHTML from './generateNoteHTML.js';
+import notes from '../data/notes.js';
 
 function renderNotes(showOption = 'active') {
     const notesTableBody = document.querySelector('#notes-table-body');
